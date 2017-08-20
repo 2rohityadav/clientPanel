@@ -8,7 +8,8 @@ import { Client } from './../../models/Client';
   styleUrls: ['./clients.component.css']
 })
 export class ClientsComponent implements OnInit {
-  c_clients: Client[];
+  c_clients: any[];
+  totalOwed: number;
 
   constructor(
     public c_clientService: ClientService
@@ -16,10 +17,23 @@ export class ClientsComponent implements OnInit {
 
   ngOnInit() {
     // Now when this compornent initialize we wanna fetch clients through getClient method from client.servie.ts
-    this.c_clientService.getClients().subscribe(clients => {
-      this.c_clients = clients
-      console.log(this.c_clients);
+    this.c_clientService.getClients().subscribe(clnts => {
+      this.c_clients = clnts
+      // console.log(this.c_clients);
+      this.getTotalOwed();
     })
   }
+
+  getTotalOwed () {
+    let total = 0;
+    for (let i = 0; i < this.c_clients.length; i++) {
+        total += parseFloat(this.c_clients[i].balance);
+        // console.log(this.totalOwed);
+        console.log(this.c_clients);
+    }
+    this.totalOwed = total;
+    // console.log(this.totalOwed);
+  }
+
 
 }

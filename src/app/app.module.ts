@@ -19,10 +19,10 @@ import { LoginComponent } from './components/login/login.component';
 import { RegisterComponent } from './components/register/register.component';
 import { SettingsComponent } from './components/settings/settings.component';
 import { Page404Component } from './components/page404/page404.component';
+import { ClientsComponent } from './components/clients/clients.component';
 
 // Service Import
 import { ClientService } from './services/client.service';
-import { ClientsComponent } from './components/clients/clients.component';
 
 const appRoute: Routes = [
   {path: '', component: DashbordComponent},
